@@ -304,12 +304,12 @@ DWORD WINAPI runCE(struct Bundle* bundle) {
 
 	Result res = CEGetNextPacket(ce);
 	while (res == SUCCESS) {
-		//WaitForSingleObject(server->packetCounterLock, INFINITE);
+		WaitForSingleObject(server->packetCounterLock, INFINITE);
 		for (int i = 0; i < 10000; i++) {
 			server->packetCounter++;
 			CEIncrementCounter(ce);
 		}
-		//ReleaseMutex(server->packetCounterLock);
+		ReleaseMutex(server->packetCounterLock);
 		res = CEGetNextPacket(ce);
 	}
 	//TODO: set status
