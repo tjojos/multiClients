@@ -1,0 +1,3 @@
+﻿  Server.c
+C:\Users\t-jojos\Documents\rampup\practice_tasks\Server\Server\Server.c(289,35): warning C4028: formal parameter 1 different from declaration
+  oneServerFewClients.vcxproj -> C:\Users\t-jojos\Documents\rampup\practice_tasks\oneServerFewClients\Debug\oneServerFewClients.exe
