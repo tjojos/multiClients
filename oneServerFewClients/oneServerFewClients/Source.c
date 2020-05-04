@@ -36,14 +36,9 @@ DWORD WINAPI launchServer() {
     Server server = serverCreate(NULL, NULL);
     assert(server != NULL);
 
-    int debugCounter = 0;
     serverRun(server);
 
     do {
-        debugCounter++;
-        if (debugCounter % 5 == 0)
-            printClients(server);
-        //serverPrint(server);
         printf("Receiving...\n");
         Sleep(SEC_IN_MILLI);
     } while (serverGetNumberOfActiveClient(server) > 0);
