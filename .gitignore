@@ -55,4 +55,5 @@ dkms.conf
 #Irrelevant
 .vs/
 oneServerOneClient/
+oneServerFewClients/oneServerFewClients/data/
 task1/
