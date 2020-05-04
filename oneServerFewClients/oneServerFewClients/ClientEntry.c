@@ -103,3 +103,10 @@ int CEGetCounter(ClientEntry* ce) {
 
 	return ce->counter;
 }
+
+double CEGetSingleAverage(ClientEntry* ce) {
+	if (!ce)
+		return -1;
+
+	return DMGetAverages(ce->dm);
+}

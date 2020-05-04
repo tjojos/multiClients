@@ -18,3 +18,5 @@ SOCKET CEGetSocket(ClientEntry* ce);
 void CEIncrementCounter(ClientEntry* ce);
 
 int CEGetCounter(ClientEntry* ce);
+
+double CEGetSingleAverage(ClientEntry* ce);

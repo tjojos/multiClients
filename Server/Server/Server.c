@@ -106,13 +106,20 @@ Result serverPrint(Server server) {
 	if (!server)
 		return ERR_NULL_PTR;
 
-	int packets = 0, packet = 0;
+	int packets = 0, packet = 0, counter = 0;
+	double sum = 0;
+
 
 	for (int i = 0; i < MAX_CLIENTS; i++) {
 		if (server->clients[i] != NULL) {
+
+			sum += CEGetSingleAverage(server->clients[i]);
+			counter++;
+
 			printf("Client %d: ", i);
 			CEPrint(server->clients[i]);
 			packet = CEGetCounter(server->clients[i]);
+
 			printf(" | Packets: %d", packet);
 			packets += packet;
 			printf("\n");
@@ -122,6 +129,10 @@ Result serverPrint(Server server) {
 
 
 	printf("Packets: %d | PacketCounter: %d\n", packets, server->packetCounter);
+
+	if (counter > 0)
+		printf("Overall Average: %.2f\n", sum/counter);
+	
 	return SUCCESS;
 }
 

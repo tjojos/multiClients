@@ -33,6 +33,9 @@ DManager DMCreate(){
 
 	dm->firstIndex = 0;
 	dm->counter = 0;
+
+	for (int i = 0; i < MAX_AVERAGES; i++)
+		dm->averages[i] = -1;
 	
 	return dm;
 }
@@ -102,4 +105,18 @@ void DMPrintAverages(DManager dm){
 	
 	for (int i = 0; i < dm->counter; i++)
 		printf("%.2f ", dm->averages[(dm->firstIndex+i)%MAX_AVERAGES]);
+}
+
+double DMGetAverages(DManager dm) {
+	if (!dm)
+		return -1;
+
+	double sum = 0;
+	int counter = 0;
+	for (int i = 0; i < MAX_AVERAGES; i++)
+		if (dm->averages[i] != -1) {
+			sum += dm->averages[i];
+			counter++;
+		}
+	return sum/counter;
 }

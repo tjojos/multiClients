@@ -11,3 +11,5 @@ void DMDestroy(DManager);
 Result DMsetNextPacket(DManager, char*);
 
 void DMPrintAverages(DManager dm);
+
+double DMGetAverages(DManager dm);
