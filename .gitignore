@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+
+#Irrelevant
+.vs/
+oneServerOneClient/
+task1/
